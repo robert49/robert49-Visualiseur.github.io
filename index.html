@@ -1,7 +1,1183 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><script src="MakrooekonomischerBilanzVisualisierer-Dateien/shares.json" type="text/javascript"></script><script src="MakrooekonomischerBilanzVisualisierer-Dateien/menu134.js" type="text/javascript"></script><script src="MakrooekonomischerBilanzVisualisierer-Dateien/counter009.js" type="text/javascript"></script><link media="all" href="MakrooekonomischerBilanzVisualisierer-Dateien/counter007.css" type="text/css" rel="stylesheet"><script src="js/de.js" type="text/javascript"></script><link media="all" href="css/widget100.css" type="text/css" rel="stylesheet">
-        <title>Makro&ouml;konomischer Bilanz-Visualisierer</title>
+        <title><!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><script src="MakrooekonomischerBilanzVisualisierer-Dateien/shares.json" type="text/javascript"></script><script src="MakrooekonomischerBilanzVisualisierer-Dateien/menu134.js" type="text/javascript"></script><script src="MakrooekonomischerBilanzVisualisierer-Dateien/counter009.js" type="text/javascript"></script><link media="all" href="MakrooekonomischerBilanzVisualisierer-Dateien/counter007.css" type="text/css" rel="stylesheet"><script src="js/de.js" type="text/javascript"></script><link media="all" href="css/widget100.css" type="text/css" rel="stylesheet">
+        <title>Visualiseur du Bilan Macroéconomique</title>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1"><!-- Support for Chrome Frame for older IE browsers -->
+        <!-- Force IE9 to use Flash as if IE 8, until mouseover bugs fixed and can use newer svgweb. See http://code.google.com/p/svgweb/issues/detail?id=573&can=1&q=setProperty -->
+        <!--meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" Doesn't work with older version of SVGWeb -->
+        <!--meta name="svg.render.forceflash" content="true"-->
+        <script src="js/ga.js" async="" type="text/javascript"></script><script type="text/javascript">
+            window.onload = function() {
+                bsOnload();
+                addthis.init(); // Delayed load option
+            }
+            setVisibilityNotes = function(isVisible) {
+                document.getElementById('notesDiv').style.display = (isVisible ? 'block' : 'none');
+                document.getElementById('notesDivEnabler').style.display = (isVisible ? 'none' : 'inline');
+                document.getElementById('notesDivDisabler').style.display = (isVisible ? 'inline' : 'none');
+            }
+            setVisibilityTips = function(isVisible) {
+                document.getElementById('tipsDiv').style.display = (isVisible ? 'block' : 'none');
+                document.getElementById('tipsDivEnabler').style.display = (isVisible ? 'none' : 'inline');
+                document.getElementById('tipsDivDisabler').style.display = (isVisible ? 'inline' : 'none');
+            }
+        </script>
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/common.css" type="text/css">
+        <link rel="stylesheet" href="css/btn.css" type="text/css">
+        <style type="text/css">
+            body,td,a,p,.h {font-family:arial,sans-serif;}
+            em {font-weight:bold; color:darkred; font-style:normal}
+            h1 {font-size: 1.7em; margin-bottom:0em}
+
+            .sectionHeading {color: darkgreen; font-weight: bold}
+            .teaserText {color: grey; font-style:italic;}
+            .actionableText {color: blue; text-decoration: underline; cursor: pointer}
+            .controlLabel {font-style:italic}
+            .deemphasizedLabel {color:#505050; font-style:italic}
+            .errorLabel {color:red; display:none}
+            #notesDiv, #tipsDiv {border:2px grey solid; display:none}
+            #wizardToggleButton {margin-left: 10em;}
+            #controlArea, #wizardArea {margin-bottom: 1em; margin-top: 1em; background-color: lightcyan}
+            #controlArea, #wizardArea, #explanationArea {
+                padding: 2px;
+                border-style: solid;
+                border-color: darkgreen;
+                border-width: 1px;
+            }
+            #wizardArea {display:none}
+            #activeWizardRow {font-weight:bold; background-color:lightgreen}
+            #wizardTable {border-collapse: collapse}
+            #wizardTable td, #wizardTable th {/*border: 1px solid black*/}
+            #wizardTable th {text-align: left; background-color: lightblue;}
+            #wizardDoneDonate {display: none}
+
+            #disqusCommentsLinkSpan {padding-left:50px;font-size:smaller}
+            #shareSpan {position:absolute;padding-left:50px;float:right;width:200px;font-size:smaller}
+            #alsoTrySpan {float:right;font-size:smaller}
+        </style>
+        <script src="js/lib/gelatinouscube/svg.js" data-path="../js/lib/gelatinouscube"></script>
+                <script src="js/bsviz.js"></script>
+                <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-299930-3']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <meta property="og:title" content="Makro&ouml;konomischer Bilanz-Visualisierer">
+        <meta property="og:description" content="Eine interaktive grafische App zum Lernen, wie die Wirtschaft funkti9niert.">
+        <meta property="og:image" content="http://econviz.org/images/bsVizIcon.png">
+        <meta itemprop="name" content="Makro&ouml;konomischer Bilanz-Visualisierer">
+        <meta itemprop="description" content="Eine interaktive grafische App zum Lernen, wie die Wirtschaft funkti9niert.">
+        <meta itemprop="image" content="http://econviz.org/images/bsVizIcon.png">
+    <div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="sh105.htm" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh442"></iframe></div><script src="js/core053.js" type="text/javascript"></script><script src="js/count_002.js" type="text/javascript" async=""></script><script src="js/count.js" async="" type="text/javascript"></script></head>
+
+    <body>
+        <span style="color:#170;font:10px Verdana,Arial,sans-serif;line-height:10px">
+            Der
+            <span style="background-color:#170,color:#FFF;font-weight:bold">EconViz.org</span>
+            <a href="http://econviz.org/macroeconomic-balance-sheet-visualizer/">
+                 <strong>Macroeconomic Balance Sheet Visualizer</strong></a>
+            von <strong>hbl</strong>,
+            Copyright &copy;2012,<br />
+            mit seiner Genehmigung ins Deutsche &uuml;bersetzt
+            und pr&auml;sentiert durch
+            <script type="text/javascript">
+              m='mail';
+              document.write('<a href="');
+              document.write(m);
+              document.write('to:oskar.fuhlrott@google');
+              document.write(m);
+              document.write('.com">');
+            </script>
+            Oskar Fuhlrott</a>
+        </span>
+
+        <!--[if !IE]-->
+        <span id="shareSpan">
+<!-- AddThis Button BEGIN -->
+<span class="addthis_toolbox addthis_default_style">
+<a href="#" title="E-Mail" class="addthis_button_preferred_3 addthis_button_email at300b"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span class="at_a11y">Share on email</span></span></a>
+<a href="#" class="addthis_button_compact at300m"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+<div class="atclear"></div></span>
+<script type="text/javascript" src="js/addthis_widget.js"></script><!--TODO: Resolve svgweb conflict w/ IE9-->
+<!-- AddThis Button END -->
+        </span>
+        <!--[endif]-->
+        <span id="alsoTrySpan"><i>Probiere auch:</i>
+ <a href="http://econviz.org/how-the-economy-works-visual-tutorial/">
+ How the Economy Works &#8212; A Visual Tutorial</a></span>
+  
+        <h1>Makro&ouml;konomischer Bilanz-Visualisierer</h1>
+        <p style="margin-top:0.1em"><i>Dies ist ein interaktives grafisches
+ Instrument zum Lernen der Funktionsweise der Geldwirtschaft. &nbsp;Wer unsicher
+ ist, wie er anfangen soll, klicke auf Einblenden und lese die Anmerkungen
+ unten, dann klicke er auf die Taste f&uuml;r das Schritt-f&uuml;r-Schritt
+ Durchspielen.</i></p>
+        <!--[if gte IE 9]>
+        <!--div style="color:red;font-weight:bold;background-color:yellow;">
+            Wenn du ein Problem mit dieser Seite auf dem Internet Explorer hast,
+            versuch es mit einem anderen Browser.</div-->
+        <!--[endif]---->
+        <p><span class="sectionHeading">Bitte beachten:</span>
+            <span id="notesDivEnabler"><span class="teaserText">Das Ziel dieses Werkzeugs...</span>
+                (<span class="actionableText" onclick="setVisibilityNotes(true);">Klick zum Einblenden</span>)</span>
+            <span id="notesDivDisabler" style="display:none">
+                (<span class="actionableText" onclick="setVisibilityNotes(false);">Klick zum Ausblenden</span>)</span>
+        </p>
+        <div id="notesDiv">
+            <ul>
+                <li>Das Ziel dieses Werkzeugs ist die Verf&uuml;gbarmachung einer
+ <b>Hilfe zum Visualisieren und Verstehen wichtiger Konzepte der Makro&ouml;konomie</b>.
+                    Es enth&auml;lt Kernpunkte der Post-Keynesianischen &Ouml;konomie,
+ welche die Unterdisziplinen MMT (Moderne Monet&auml;re Theorie, manchmal auch als
+ Chartalismus bezeichnet) und Circuitismus einschlie&szlig;t.</li>
+                <li>Um mehr &uuml;ber &ouml;konomische Theorie zu erfahren, suche man
+ bitte die Blogs der MMT-Verfasser auf, wie den &Ouml;konomen
+ <a href="http://bilbo.economicoutlook.net/blog/?cat=11">Bill Mitchell</a> oder
+ <a href="http://moslereconomics.com/">Warren Mosler</a>.
+ Moslers Buch, <a href="http://moslereconomics.com/2009/12/10/7-deadly-innocent-frauds/">
+ Seven Deadly Innocent Frauds of Economic Policy</a>, ist eine l&auml;ngere
+ Einf&uuml;hrung, gerichtet an ein breites Publikum.
+                    Ein mehrteiliger
+ <a href="http://neweconomicperspectives.blogspot.com/p/modern-money-primer.html">
+ Modern Money Primer</a> ist verf&uuml;gbar bei New Economic Perspectives.
+                    Es gibt auch Schriften von der US Federal Reserve und anderen
+ &bdquo;autoritativen&rdquo; Quellen (wie
+ <a href="http://www.bis.org/publ/work292.htm">dieser BIS-Beitrag</a>), welche dies moderne
+ Verst&auml;ndnis von Bankdarlehen, Reserven und verwandter Konzepte unterst&uuml;tzen.</li>
+                <li>Ich werde schrittweise neue Eigenschaften und Verfahren hinzuf&uuml;gen
+ und daran arbeiten, den bestehenden Inhalt zu verbessern.</li>
+            </ul>
+        </div>
+        <p><span class="sectionHeading">Dieses Werkzeug verstehen und benutzen:</span>
+            <span style="display: none;" id="tipsDivEnabler"><span class="teaserText">
+             Die Differenz zwischen...</span>
+             (<span class="actionableText" onclick="setVisibilityTips(true);">
+               Klick zum Einblenden</span>)</span>
+             <span id="tipsDivDisabler" style="display: inline;">
+               (<span class="actionableText"
+                onclick="setVisibilityTips(false);">Klick zum Ausblenden</span>)</span>
+        </p>
+        <div style="display: block;" id="tipsDiv">
+            <ul>
+                <li>Die Differenz zwischen Forderungen und Verbindlichkeiten ist das
+ Eigenkapital (auch <i>Nettowert</i> genannt), und es kann negativ sein. Besonders bei
+ Banken wird das Eigenkapital schlicht <i>Kapital</i> genannt. Dieser Visualisierer
+ zeigt negative Werte auf der linken Seite von Bilanzen &auml;hnlich an wie das
+ <a href="http://www.calculatedriskblog.com/2009/04/bank-balance-sheet-liquidity-and.html">
+ Calculated Risk's Beispiel</a> und
+ <a href="http://www.calculatedriskblog.com/2009/04/bank-balance-sheet-liquidity-and_26.html">
+ dessen Teil 2</a>.</li>
+                <li>Die <b>Schlusszeile von Bilanzen </b>(oben)<b> repr&auml;sentiert
+ ganze Sektoren</b> (z.B. alle Privathaushalte, Kombiniert in einer Bilanz).</li>
+                <li>Die <b>mittlere Zeile von Bilanzen ist die Echtzeit-Summierung der
+ unteren Bilanzen</b>.
+ Die zwei Zusammen&shy;fassungen sind &bdquo;Staatssektor&rdquo; und &bdquo;Privat&shy;sektor&rdquo;
+ (mit Auslassung des Auslands&shy;sektors zur Vereinfachung, obwohl er als Teil der
+ &bdquo;Privat&shy;sektor&rdquo;-Zusammen&shy;fassung aufgefasst werden k&ouml;nnte).</li>
+                <li>Die <b>Anfangszeile der Bilanzen </b>(unten)<b> summiert alles darunter,
+ z.B. die Gesamt&shy;wirtschaft</b>, gleicht sich definitions&shy;gem&auml;&szlig; auf Null aus.</li>
+                <li><em>Zeigt man mit der Maus auf eine Forderung in der Schlusszeile, werden
+ alle zugeh&ouml;rigen Verbind&shy;lichkeiten hervorgehoben</em> (da jede finanzielle Forderung
+ irgend&shy;jemandes Verbind&shy;lichkeit ist), <em>und umgekehrt</em>.</li>
+                <li><em>Zeigt man mit der Maus auf eine zusammenfassende Statistik (die
+ orangenen Geld- und Schulden-Balken), kann man sehen, woraus sie zusammengesetzt ist</em>.</li>
+                <li><em>W&auml;hlt man einen Vorgang im Men&uuml; unter den Bilanzen und klickt
+ 'Starte Vorgang'</em>, kann man den Bilanz-&Uuml;bergang ablaufen sehen.
+                    Um ihn noch einmal zu sehen, klickt man auf 'Wiederhole'.
+                    Alternativ kann man 'R&uuml;ckw&auml;rts' anklicken, um den Vorgang
+ r&uuml;ckw&auml;rts ablaufen zu lassen, dann klickt man wieder 'Start'.</li>
+                <li><em>Zeigt man mit der Maus auf den Namen unter einer Bilanz, kann man eine
+ sich verschiebende Kopie dessen sehen, wie sie vor dem letzten Vorgang aussah</em>, um leichter
+ zu sehen, was sich ge&auml;ndert hat.</li>
+                <li>Die betragsm&auml;&szlig;ige <i>H&ouml;he des Vorgangs</i> kann man einstellen.</li>
+                <li>Die 'Neuanfang'-Taste stellt den Standard&shy;zustand
+ der Werte aller Bilanzen wieder her. Diese sind erfundene Zahlen zur einfachen Illustration
+ &mdash; nicht reale &ouml;konomische Daten.</li>
+                <li>Die Forderungen und Verbind&shy;lichkeiten mit einem gelben Rand
+ <i>w&auml;hrend der Animation</i> eines Vorgangs sind diejenigen Werte, die durch den Vorgang
+ ver&auml;ndert werden.</li>
+                <li>Diese Seite zeigt <nur <i>finanzielle</i> Forderungen und Verbindlich&shy;keiten</b>.
+ Dingliche Verm&ouml;gen (Maschinen, Grundst&uuml;cke, usw.) sind auch ein wichtiger Bestandteil
+ der Bilanzen in der wirklichen Welt, werden aber nicht in gleicher Weise von den hier gezeigten
+ verschiedenen finanziellen Vorg&auml;ngen betroffen.</li>
+                <li>Zur Vereinfachung weggelassen: Regierungen der L&auml;nder und Gemeinden,
+ Auslandssektor und Nicht-Unternehmen.</li>
+               <div style="float:right;margin-top:-15px"><a onclick="setVisibilityTips(false);return false" href="">
+                <span title="Ausblenden" alt="Ausblenden" style="font-size:28px">&#x203B;</span></a>
+               </div>
+            </ul>
+        </div>
+        <p><span class="sectionHeading" style="margin-top:50px">Interaktives gesamtwirtschaftliches Finanzbilanz-Diagramm:</span>
+            <button id="wizardToggleButton" onclick="toggleWizardMode()">Schritt-f&uuml;r-Schritt
+ Durchspielen EINschalten</button>
+        </p>
+        <!-- Directly embed SVG into your page by using a SCRIPT tag and
+             setting the type attribute to "image/svg+xml". -->
+<svg id="embeddedSVG" style="background-color: #FFFFFF; display: block; margin-bottom: 5px;" height="586" width="1000" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g>
+<g id="privateSectorBSGroup">
+  <rect id="priBgRect" fill="#E8E8E8" height="320" width="540" y="270" x="375"></rect>
+ <text style="font-size: 12px; font-style: italic; font-family: arial,sans-serif; fill: black;" id="priScaleLabel" y="285" x="920">Ma&szlig;e: 1/1</text>
+<g id="bankBS" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="571" y1="571" x2="545" x1="375"></line>
+ <text style="fill:black" y="580" x="460">Banken</text>
+ <text y="445" x="460">$120</text>
+ <text font-style="italic" fill="#606060" y="445" x="420">Forderungen</text>
+ <text font-style="italic" fill="#606060" y="445" x="500">Verbindlichk.</text>
+  <rect y="450" x="465" fill="mediumblue" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" visibility="true" y="460" x="500">EigKapital $40</text>
+ <text visibility="visible" y="460" x="545"></text>
+  <rect y="450" x="385" fill="darkgreen" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="460" x="420">Bargeld $40</text>
+ <text y="460" x="375"></text>
+  <rect y="490" x="385" fill="darkgreen" stroke-width="1" stroke="black" height="80" width="70"></rect>
+ <text style="fill:white" y="500" x="420">Reserven $80</text>
+ <text y="500" x="375"></text>
+  <rect y="570" x="385" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="420" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="375"></text>
+  <rect y="570" x="385" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="420" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="375"></text>
+  <rect y="570" x="385" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="420" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="375"></text>
+  <rect y="490" x="465" fill="darkred" stroke-width="1" stroke="black" height="80" width="70"></rect>
+ <text style="fill:white" y="500" x="500">Guthaben $80</text>
+ <text y="500" x="545"></text>
+  <rect y="570" x="465" fill="darkred" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="500" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="545"></text>
+</g>
+<g id="householdBS" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="571" y1="571" x2="730" x1="560"></line>
+ <text y="580" x="645">Households</text>
+ <text y="485" x="645">$80</text>
+ <text font-style="italic" fill="#606060" y="485" x="605">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="485" x="685">Passiva</text>
+  <rect y="490" x="650" fill="mediumblue" stroke-width="1" stroke="black" height="80" width="70"></rect>
+ <text style="fill:white" visibility="true" y="500" x="685">EigKapital $80</text>
+ <text visibility="visible" y="500" x="730"></text>
+  <rect y="490" x="570" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="500" x="605" style="fill:white"></text>
+ <text visibility="hidden" y="500" x="560"></text>
+  <rect y="490" x="570" fill="darkgreen" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="500" x="605">Guthaben $40</text>
+ <text y="500" x="560"></text>
+  <rect y="530" x="570" fill="darkgreen" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="540" x="605">Finanzen $40</text>
+ <text y="540" x="560"></text>
+  <rect y="570" x="570" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="605" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="560"></text>
+  <rect y="570" x="650" fill="darkred" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="685" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="730"></text>
+</g>
+<g style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="571" y1="571" x2="915" x1="745"></line>
+ <text style="fill:black" y="580" x="830">Unternehmen (+ Ausland und Diverse)</text>
+ <text y="525" x="830">$40</text>
+ <text font-style="italic" fill="#606060" y="525" x="790">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="525" x="870">Passiva</text>
+  <rect y="530" x="835" fill="mediumblue" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" visibility="true" y="540" x="870">EigKapital $40</text>
+ <text visibility="visible" y="540" x="915"></text>
+  <rect y="530" x="755" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="540" x="790" style="fill:white"></text>
+ <text visibility="hidden" y="540" x="745"></text>
+  <rect y="530" x="755" fill="darkgreen" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="540" x="790">Guthaben $40</text>
+ <text y="540" x="745"></text>
+  <rect y="570" x="755" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="790" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="745"></text>
+  <rect y="570" x="755" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="790" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="745"></text>
+  <rect y="570" x="835" fill="darkred" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="870" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="915"></text>
+  <rect y="570" x="835" fill="darkred" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="870" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="915"></text>
+</g>
+</g>
+<g>
+  <rect id="govBgRect" fill="#E8E8E8" height="320" width="355" y="270" x="5"></rect>
+<g id="treasuryBS" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="571" y1="571" x2="175" x1="5"></line>
+ <text y="580" x="90">Finanzamt (Staat)</text>
+ <text y="355" x="90">$210</text>
+ <text font-style="italic" fill="#606060" y="355" x="50">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="355" x="130">Passiva</text>
+  <rect y="360" x="15" fill="mediumblue" stroke-width="1" stroke="black" height="170" width="70"></rect>
+ <text style="fill:white" visibility="true" y="370" x="50">NegKapital $170</text>
+ <text visibility="visible" y="370" x="95"></text>
+  <rect y="530" x="15" fill="darkgreen" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="540" x="50">T.Guthaben $40</text>
+ <text y="540" x="5"></text>
+  <rect y="570" x="15" fill="darkgreen" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="580" x="50" style="fill: white;"></text>
+ <text visibility="hidden" y="580" x="5"></text>
+  <rect y="360" x="95" fill="darkred" stroke-width="1" stroke="black" height="210" width="70"></rect>
+ <text style="fill:white" y="370" x="130">Finanzen $210</text>
+ <text y="370" x="175"></text>
+</g>
+<g id="centralBankBS" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="571" y1="571" x2="360" x1="190"></line>
+ <text y="580" x="275">Zentralbank (Staat)</text>
+ <text y="395" x="275">$170</text>
+ <text font-style="italic" fill="#606060" y="395" x="235">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="395" x="315">Passiva</text>
+  <rect y="400" x="280" fill="mediumblue" stroke-width="1" stroke="black" height="10" width="70"></rect>
+ <text style="fill:white" visibility="true" y="410" x="315">EigKapital $10</text>
+ <text visibility="visible" y="410" x="360"></text>
+  <rect y="400" x="200" fill="darkgreen" stroke-width="1" stroke="black" height="170" width="70"></rect>
+ <text style="fill:white" y="410" x="235">Finanzen $170</text>
+ <text y="410" x="190"></text>
+  <rect y="410" x="280" fill="darkred" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="420" x="315">Bargeld $40</text>
+ <text y="420" x="360"></text>
+  <rect y="450" x="280" fill="darkred" stroke-width="1" stroke="black" height="120" width="70"></rect>
+ <text style="fill:white" y="460" x="315">Guthaben $120</text>
+ <text y="460" x="360"></text>
+</g>
+</g>
+<g>
+  <rect id="subAggBgRect" fill="#E8E8E8" height="135" width="355" y="125" x="190"></rect>
+ <text style="font-size: 12px; font-style: italic; font-family: arial,sans-serif; fill: black;" id="subAggScaleLabel" y="140" x="550">Ma&szlig;e: 1/4</text>
+<g style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="251" y1="251" x2="360" x1="190"></line>
+ <text style="fill:black" y="260" x="275">Staatssektor (zusammengefasst)</text>
+ <text y="152" x="275">$370</text>
+ <text font-style="italic" fill="#606060" y="152" x="235">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="152" x="315">Passiva</text>
+  <rect y="157" x="200" fill="mediumblue" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" visibility="true" y="167" x="235">NegKapital $160</text>
+ <text visibility="visible" y="167" x="280"></text>
+  <rect y="197" x="200" fill="darkgreen" stroke-width="1" stroke="black" height="53" width="70"></rect>
+ <text style="fill:white" y="207" x="235">Fordergn. $210</text>
+ <text y="207" x="190"></text>
+  <rect y="157" x="280" fill="darkred" stroke-width="1" stroke="black" height="93" width="70"></rect>
+ <text style="fill:white" y="167" x="315">Verbindl. $370</text>
+ <text y="167" x="360"></text>
+</g>
+<g style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="251" y1="251" x2="545" x1="375"></line>
+ <text style="fill:black" y="260" x="460">Privatsektor (zusammengefasst)</text>
+ <text y="185" x="460">$240</text>
+ <text font-style="italic" fill="#606060" y="185" x="420">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="185" x="500">Passiva</text><rect y="190" x="465" fill="mediumblue" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" visibility="true" y="200" x="500">Verm&ouml;gen $160</text>
+ <text visibility="visible" y="200" x="545"></text>
+  <rect y="190" x="385" fill="darkgreen" stroke-width="1" stroke="black" height="60" width="70"></rect>
+ <text style="fill:white" y="200" x="420">Fordergn. $240</text>
+ <text y="200" x="375"></text>
+ <rect y="230" x="465" fill="darkred" stroke-width="1" stroke="black" height="20" width="70"></rect>
+ <text style="fill:white" y="240" x="500">Verbindl. $80</text>
+ <text y="240" x="545"></text>
+</g>
+<g>
+ <line style="stroke:green;stroke-width:2" y2="270" x2="360" y1="270" x1="5"></line>
+ <line style="stroke:green;stroke-width:2" y2="285" x2="5" y1="270" x1="5"></line>
+ <line style="stroke:green;stroke-width:2" y2="285" x2="360" y1="270" x1="360"></line>
+ <line style="stroke:green;stroke-width:2" y2="260" x2="275" y1="270" x1="275"></line>
+ <line style="stroke:green;stroke-width:2" y2="270" x2="915" y1="270" x1="375"></line>
+ <line style="stroke:green;stroke-width:2" y2="285" x2="375" y1="270" x1="375"></line>
+ <line style="stroke:green;stroke-width:2" y2="285" x2="915" y1="270" x1="915"></line>
+ <line style="stroke:green;stroke-width:2" y2="260" x2="460" y1="270" x1="460"></line>
+</g>
+</g>
+<g>
+  <rect id="aggBgRect" fill="#E8E8E8" height="100" width="170" y="15" x="282.5"></rect>
+ <text style="font-size: 12px; font-style: italic; font-family: arial,sans-serif; fill: black;" id="aggScaleLabel" y="30" x="457.5">Ma&szlig;e: 1/8</text><g style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;"><line style="stroke:rgb(99,99,99);stroke-width:2" y2="106" y1="106" x2="452.5" x1="282.5"></line>
+ <text style="fill:black" y="115" x="367.5">Gesamtwirtschaft(zusammengefasst)</text>
+ <text y="44" x="367.5">$450</text>
+ <text font-style="italic" fill="#606060" y="44" x="327.5">Aktiva</text>
+ <text font-style="italic" fill="#606060" y="44" x="407.5">Passiva</text>
+  <rect y="49" x="372.5" fill="mediumblue" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="59" x="407.5" style="fill: white;"></text>
+ <text visibility="hidden" y="59" x="452.5"></text>
+  <rect y="49" x="292.5" fill="darkgreen" stroke-width="1" stroke="black" height="56" width="70"></rect>
+ <text style="fill:white" y="59" x="327.5">Fordergn. $450</text>
+ <text y="59" x="282.5"></text>
+  <rect y="49" x="372.5" fill="darkred" stroke-width="1" stroke="black" height="56" width="70"></rect>
+ <text style="fill:white" y="59" x="407.5">Verbindl. $450</text>
+ <text y="59" x="452.5"></text>
+</g>
+<g>
+ <line style="stroke:green;stroke-width:2" y2="125" x2="545" y1="125" x1="190"></line>
+ <line style="stroke:green;stroke-width:2" y2="140" x2="190" y1="125" x1="190"></line>
+ <line style="stroke:green;stroke-width:2" y2="140" x2="545" y1="125" x1="545"></line>
+ <line style="stroke:green;stroke-width:2" y2="115" x2="357.5" y1="125" x1="357.5"></line>
+</g>
+</g>
+<g>
+  <rect id="statBgRect" fill="#FFFFC0" height="135" width="280" y="125" x="632.5"></rect>
+ <text style="font-size: 12px; font-style: italic; font-family: arial,sans-serif; fill: black;" id="statScaleLabel" y="140" x="917.5">Ma&szlig;e: 1/2</text>
+<g id="baseMoneyStat" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="251" y1="251" x2="722.5" x1="632.5"></line>
+ <text style="fill:black" y="260" x="677.5">Geldbasis</text>
+ <text y="185" x="677.5">$120</text>
+  <rect y="190" x="642.5" fill="darkorange" stroke-width="1" stroke="black" height="60" width="70"></rect>
+ <text style="fill:white" y="200" x="677.5">Gesamt $120</text>
+ <text y="200" x="632.5"></text>
+</g>
+<g id="broadMoneyStat" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="251" y1="251" x2="817.5" x1="727.5"></line>
+ <text y="260" x="772.5">Geldumlauf</text>
+ <text y="205" x="772.5">$80</text>
+  <rect y="210" x="737.5" fill="darkorange" stroke-width="1" stroke="black" height="40" width="70"></rect>
+ <text style="fill:white" y="220" x="772.5">Gesamt $80</text>
+ <text y="220" x="727.5"></text>
+</g>
+<g id="privateDebtStat" style="font-size: 9px; font-weight: bold; text-anchor: middle; font-family: arial,sans-serif;">
+ <line style="stroke:rgb(99,99,99);stroke-width:2" y2="251" y1="251" x2="912.5" x1="822.5"></line>
+ <text y="260" x="867.5">Private Schulden</text>
+ <text y="245" x="867.5">$0</text>
+  <rect y="250" x="832.5" fill="darkorange" stroke-width="1" stroke="black" height="0" width="70"></rect>
+ <text visibility="false" y="260" x="867.5" style="fill: white;"></text>
+ <text visibility="hidden" y="260" x="822.5"></text>
+</g>
+</g>
+</g>
+<g visibility="hidden">
+  <rect stroke-width="2" stroke="black" fill="#E8FFE8" height="250" width="175" y="10" x="5"></rect>
+ <text style="font-size: 12px; font-weight: bold; font-family: arial,sans-serif; fill:darkred;" y="28" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="46" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="64" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="82" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="100" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="118" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="136" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="154" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="172" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="190" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="208" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="226" x="10"></text>
+ <text style="font-size: 12px; font-weight: normal; font-family: arial,sans-serif;" y="244" x="10"></text>
+</g>
+</svg>
+        <noscript>
+            <h1>Der Browser scheint weder SVG noch Flash zu unterst&uuml;tzen</h1>
+        </noscript>
+
+        <div id="wizardArea">
+            <span class="sectionHeading">Schritt-f&uuml;r-Schritt Durchspielen ist aktiv:</span>
+            <span id="wizardTotalSteps"></span><br>
+            <table id="wizardTable">
+                <tbody><tr>
+                    <th>Schritt #</th><th>Aktion</th><th>Vorgang</th><th>Kommentar</th>
+                </tr>
+                <tr>
+                    <td><span id="wizardPrevStepNum"></span> (Vorher)</td>
+                    <td><button id="wizardPrevButton" onclick="BalanceSheetWizard_stepPrev()">
+ Kehre zu dieser --&gt;</button></td>
+                    <td><span id="wizardPrevStepOp"></span></td>
+                    <td><span id="wizardPrevStepComments"></span></td>
+                </tr><tr id="activeWizardRow">
+                    <td><span id="wizardCurrStepNum"></span> (Aktuell)</td>
+                    <td><button id="wizardReplayButton" onclick="BalanceSheetWizard_stepReplay()">
+ Wiederhole diese --&gt;</button></td>
+                    <td><span id="wizardCurrStepOp"></span></td>
+                    <td><span id="wizardCurrStepComments"></span></td>
+                </tr><tr>
+                    <td><span id="wizardNextStepNum"></span> (N&auml;chstes)</td>
+                    <td><button id="wizardNextButton" onclick="BalanceSheetWizard_stepNext()">
+ Starte diese --&gt;</button></td>
+                    <td><span id="wizardNextStepOp"></span></td>
+                    <td><span id="wizardNextStepComments"></span><span id="wizardDoneDonate">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin: 0em;">
+                                <input name="cmd" value="_s-xclick" type="hidden">
+                                <input name="hosted_button_id" value="ESSJ2PCPKW9WS" type="hidden">
+                                <input src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" name="submit" alt="PayPal - der sicherere, leichtere Weg zur Online-Bezahlung!" border="0" type="image">
+                                <img alt="" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" border="0" height="1" width="1">
+                                <i>TIP JAR: </i> Hat dieser Visualisierer geholfen, und gew&uuml;nscht wird
+ &bdquo;Starte Vorgang&rdquo; eines Bilanztransfers aus dem wirklichen Leben?
+                            </form>
+                        </span></td>
+                </tr>
+            </tbody></table>
+        </div>
+        <div id="controlArea">
+            <span class="controlLabel">Vorgang ausw&auml;hlen:</span>
+            <select id="opSelect" onchange="selectionChangedClick(this)" style="border:2px solid #C50">
+                <option value="privatespending" selected="selected">Private Ausgaben</option>
+                <option value="governmentspending">Staat t&auml;tigt Ausgaben</option>
+                <option value="governmenttaxes">Staat erhebt Steuern</option>
+                <option value="governmentdebtissuance">Staat macht Schulden</option>
+                <option value="consolidatedgovernmentspending">Staat t&auml;tigt Ausgaben (zusammengefasst)</option>
+                <option value="governmentspendingnobonds">Staat t&auml;tigt Ausgaben (ohne Neuverschuldung)</option>
+                <option value="withdrawcurrency">Bankkunde hebt Bargeld ab</option>
+                <option value="depositcurrency">Bankkunde zahlt Bargeld ein</option>
+                <option value="bankloan">Bankdarlehen</option>
+                <option value="bankloaninterest">Schuldner zahlt Zinsen auf Bankdarlehen</option>
+                <option value="bankloanrepayment">
+                 Schuldner zahlt Kapital des Bankdarlehens zur&uuml;ck (Tilgung)</option>
+                <option value="bankloandefault">Schuldner ger&auml;t in Verzug beim Bankdarlehen (Kreditausfall)</option>
+                <option value="bondissuance">Privat-Anleihe aufgelegt</option>
+                <option value="bondinterest">Privat-Anleihe: Zinsen bezahlt</option>
+                <option value="bondrepayment">Privat-Anleihe: Kapital zur&uuml;ckgezahlt</option>
+                <option value="bonddefault">Privat-Anleihe in Verzug geraten</option>
+                <option value="bankloansecuritize">Bankdarlehen ist besichert</option>
+                <option value="qe">Quantitative Lockerung (Variation 1 - Verkauf durch Privathaushalt)</option>
+                <option value="qebanks">Quantitative Lockerung (Variation 2 - Verkauf durch Bank)</option>
+                <option value="omoraiserates">Offenmarktgesch&auml;fte: Hebe S&auml;tze in Richtung Ziel</option>
+                <option value="omolowerrates">Offenmarktgesch&auml;fte: Senke S&auml;tze in Richtung Ziel</option>
+                <option value="governmentdebtissuancettl">
+                 Staat legt Anleihe auf (Banken kaufen &uuml;ber TT&amp;L)</option>
+                <option value="treasurymovesttl">
+                 Finanzministerium &uuml;bertr&auml;gt Finanzen von Bank TT&amp;L an Zentralbank</option>
+            </select>
+            <span class="controlLabel">Gr&ouml;&szlig;e: $</span><input id="opAmountText" value="30" size="5" type="text">
+            <button onclick="doActionClick()">Starte Vorgang</button>
+            <button disabled="disabled" onclick="replayActionClick()" id="replayOpButton">Wiederhole</button>
+            <button onclick="reverseActionClick()">R&uuml;ckw&auml;rts</button>
+            <button onclick="resetBalanceSheetsClick()">Neuanfang</button>
+            <div id="errorLabel" class="errorLabel"><b>Ung&uuml;ltiger Vorgang</b>: Eine oder mehrere
+ Bilanzen haben nicht gen&uuml;gend Aktiva oder Passiva. Bitte zuerst mit einem
+ anderen Vorgang versuchen oder die Bilanzen zur&uuml;ck setzen (Neuanfang).</div>
+        </div>
+        <div style="display: block;" id="explanationArea">
+            <span class="sectionHeading">Erl&auml;uterung ausgew&auml;hlter Vorg&auml;nge
+             <span id="opDetailsOpName">(Private Ausgabe)</span>:</span>
+            <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="deemphasizedLabel">[<a href="./" id="oplink">Direkter Link</a>
+ zu diesem Vorgang]</span>-->
+            <br>
+
+            <div id="privatespending" style="display: block;">
+                <ul>
+                    <li>In diesem Beispiel kaufen Privathaushalte G&uuml;ter und/oder
+ Dienstleistungen von Unternehmen.</li>
+                </ul><ul>
+                    <li><b>Das Ergebnis ist die &Uuml;bertragung eines Finanzbilanz-Wertes
+ vom K&auml;ufer zum Verk&auml;ufer.</b>
+                        Man beachte dass, obwohl physische G&uuml;ter getauscht worden
+ sein k&ouml;nnen, dingliche Verm&ouml;gen vom Visualisierer wegen der ausschlie&szlig;lichen
+ Darstellung von Finanzstr&ouml;men ausgeschlossen sind.</li>
+                    <li>Der Verkauf erzeugt Einkommen beim Verk&auml;ufer und tr&auml;gt
+ zum Bruttoinlandsprodukt (welches das Gesamteinkommen einer Nation misst) bei.</li>
+                </ul>
+            </div>
+            <div id="governmentspending" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel kauft die US-Bundesregierung (&uuml;ber das
+ Finanzministerium) G&uuml;ter und/oder Dienstleistungen vom Privathaushaltesektor.
+ Das Einkommen, das zum Haushaltssektor flie&szlig;t, wird auf Bankkonten eingezahlt.</li>
+                    <li><i>Ein verwandter Vorgang (hier nicht gezeigt):</i> Wenn der Staat
+ Zinsen auf die Verbindlichkeiten des Finanzministeriums zahlt (z.B. auf
+ Staatsanleihen), ist die Wirkung auf die Bilanz identisch zum hier Gezeigten.</li>
+                </ul><ul>
+                    <li>In den meisten L&auml;ndern, in den meisten Zeitperioden,
+ wird gew&uuml;nscht, dass der zusammengefasste inl&auml;ndische Privatsektor netto spart
+ (also weniger ausgibt, als er einnimmt).
+                        Der Staat erleichtert dies, indem er Defizite einf&auml;hrt
+ (z.B., indem er mehr ausgibt als er an Steuern einnimmt).
+                        <b>Der Effekt ist, dass der Staat seine eigene Bilanz negativer
+ macht, um das Bilanzkapital (den Wohlstand) des Privatsektors zu erh&ouml;hen.</b></li>
+                    <li>Das Finanzministerium t&auml;tigt Ausgaben, indem es die Bilanz
+ seines Guthabenkontos (bei der Zentralbank gef&uuml;hrt) verringert und die Bilanz der
+ Reserven bei der Bank erh&ouml;ht, bei welcher der Empf&auml;nger der Zahlung ein Konto hat.
+                        Das Bankguthaben des Empf&auml;ngers (in diesem Fall des
+ Privathaushalts) steigt entsprechend.</li>
+                    <li><b>Wie von der Modernen Monet&auml;ren Theorie betont wird, gibt
+ es kein theoretisches Limit dieser Ausgaben f&uuml;r einen Staat, der seine eigene
+ nicht-konvertierbare Bargeld ausgibt.</b>
+                        Um dies einzusehen, starte man den Vorgang <i>&bdquo;Staat macht
+ Schulden&rdquo;</i> als N&auml;chstes, und kann dann noch einmal <i>&bdquo;Staat
+ t&auml;tigt Ausgaben&rdquo;</i> wiederholen.
+                        Um die Visualisierung des Ergebnisses zu erleichtern, kombiniert
+ der Vorgang <i>&bdquo;Staat t&auml;tigt Ausgaben (zusammengefasst)&rdquo;</i> diese
+ anderen zwei Vorg&auml;nge zu einem.
+                        Dem Staat steht ein anderer Weg zur Verf&uuml;gung, wie im
+ kombinierten Vorgang <i>&bdquo;Staat t&auml;tigt Ausgaben (ohne Kredit&shy;aufnahme)&rdquo;</i>
+ gezeigt.
+                    </li><li>In diesem Beispiel erweitert der Bankensektor seine Forderungen
+ und Verbindlichkeiten (wegen erh&ouml;hter Guthaben), aber sein Eigenkapital wird nicht
+ ber&uuml;hrt.</li>
+                    <li>Staatsausgaben erzeugen Einkommen f&uuml;r den Privatsektor und
+ tragen zum Bruttoinlandsprodukt bei.</li>
+                </ul>
+            </div>
+            <div id="governmenttaxes" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel sammelt die US-Bundes&shy;regierung (&uuml;ber
+ das Finanzministerium) Steuern aus dem Haushaltssektor ein.</li>
+                </ul><ul>
+                    <li>Obwohl die meisten Steuern auf Einkommensstr&ouml;me erhoben
+ werden, statt auf bestehende Ersparnisse, vermindert Besteuerung das Bilanz-Kapital
+ (den Wohlstand) des Privatsektors und schlie&szlig;lich seine Kaufkraft.
+                        <b>Ein Staat, der seine eigene nicht-konvertible Bargeld
+ beherrscht, erhebt NICHT Steuern, um f&uuml;r zuk&uuml;nftige Ausgaben zu
+ &bdquo;sparen&rdquo;, denn ein solcher Staat ist niemals von der Einnahmen-Seite her
+ eingeschr&auml;nkt</b> &#8212; siehe die Vorg&auml;nge <i>&bdquo;Ausgaben des Staates
+ (zusammengefasst)&rdquo;</i> and <i>&bdquo;Ausgaben des Staates (ohne
+ Verschuldung)&rdquo;</i>.
+                        Die Hauptaufgabe der Besteuerung ist es, die Gesamtnachfrage
+ (Staat plus Privatsektor) so zu begrenzen, dass sie nicht die Produktionskapazit&auml;t
+ der Wirtschaft &uuml;bersteigt und dadurch die Inflation anheizt.</li>
+                    <li>Die Wirkung der zusammengefassten Bilanz der Besteuerung ist
+ das Gegenteil von Staatsausgaben.</li>
+                    <li>Steuer&shy;zahlungen der Privathaushalte vermindern ihre
+ Bankguthaben.</li>
+                    <li>Bankensektor-Aktiva und -Passiva schrumpfen als Ergebnis
+ verminderter Guthaben, aber das Banken-Kapital wird nicht ver&auml;ndert.</li>
+                </ul>
+            </div>
+            <div id="governmentdebtissuance" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel verkauft der Staat 
+ Schuldver&shy;schreibungen des Finanzministeriums (Anleihen, Obligationen und
+ Optionsscheine) an den Haushaltssektor.</li>
+                    <li>Ein alternatives Szenario, in welchem der Staat Schulden
+ bei kommerziellen Banken aufnimmt, ist sp&auml;ter in den Men&uuml;-Vorg&auml;ngen
+ verf&uuml;gbar.</li>
+                </ul><ul>
+                    <li>Die Wirkung auf Privathaushaltsbilanzen l&auml;sst sich
+ am besten zusammenfassen als Tausch von Beteiligungen &#8212; Privathaushalte
+ tauschen Guthaben gegen Schatzbriefe.
+                        Schatzbriefe haben typischerweise einen h&ouml;heren
+ Ertrag als Bankguthaben, und wegen der vom Privatsektor gew&uuml;nschten positiven
+ Netto-Sparrate gibt es immer willige K&auml;ufer von Schatzbriefen.</li>
+                    <li><b>Dieser Vorgang zeigt, wie das Finanzministerium
+ typischerweise seine Bilanz verl&auml;ngert &#8212; seine Schatzbriefe expandieren
+ mit den zus&auml;tzlichen Zentralbank-Verbindlichkeiten (aus dem Privatsektor
+ herausgenommen), und seine Verbindlichkeiten expandieren mit neuen Schulden des
+ Finanzministeriums (w&auml;hrend der Privatsektor die entprechenden verbrieften
+ Schatzbriefe h&auml;lt).</b></li>
+                </ul>
+            </div>
+            <div id="consolidatedgovernmentspending" style="display:none">
+                <ul>
+                    <li>Dieser Vorgang kombiniert zwei andere:
+ <i>&bdquo;Staat t&auml;tigt Ausgaben&rdquo;</i> und <i>&bdquo;Staat legt Anleihe
+ auf&rdquo;</i>. Man probiere sie nacheinander aus, um zu erkennen, dass er die
+ gleiche Netto-Wirkung hat.</li>
+                    <li>Dieses Beispiel zeigt, wie der Staat Geld an den
+ Privathaushaltesektor ausgibt, aber die Mechanik w&auml;re vergleichbar, wenn
+ der Staat Geld an den Unternehmenssektor ausg&auml;be.</li>
+                </ul><ul>
+                    <li><b>Die Wirkung dieses kombinierten Vorgangs ist, dass das
+ Finanzministerium Einkommen und Wohlstand f&uuml;r den Privatsektor erzeugt,
+ indem es seinen Bestand an Forderungen (Schatzbriefen) erh&ouml;ht und ebenfalls
+ sein Bilanz-Kapital.</b>
+                        Der zusammengefasste Privatsektor erstrebt allgemein,
+ netto zu sparen (weniger auszugeben als einzunehmen), ein Prozess, der durch
+ Staatsdefizite erleichtert wird.</li>
+                    <li>Diese Veranschaulichung der zusammengefassten
+ sektorweiten Bilanzen verdeckt einige Details innerhalb der einzelnen Sektoren.
+                        Zum Beispiel <b>k&ouml;nnte es sein, dass es nicht der
+ urspr&uuml;nglich bezahlte Privathaushalt ist, der die Schatzbriefe kauft &#8212;
+ sondern stattdessen k&ouml;nnte der erste Privathaushalt Geld f&uuml;r andere
+ G&uuml;ter und Dienstleistungen des Privatsektors ausgeben, und es w&auml;ren
+ die Empf&auml;nger dieser zweiten Geldausgabe (oder weiteren, wenn das
+ Geldausgeben sich durch die Wirtschaft fortpflanzt), die letztlich die
+ Schatzbriefe kaufen.</b></li>
+                    <li>Ein Einwand k&ouml;nnte sein, dass das Finanzministerium
+ die Anleihen nicht verkaufen k&ouml;nnte und dann nicht in der Lage w&auml;re,
+ seine eigenen Forderungen (Guthaben) aufzuf&uuml;llen, aber in Wirklichkeit
+ <b>schlagen diese Versteigerungen des Finanzministeriums niemals fehl f&uuml;r
+ eine eigenst&auml;ndige Nation, die eigenes Geld ausgibt (wie die Vereinigten
+ Staaten, aber nicht die Eurozone), weil der Markt wei&szlig;, dass der Staat
+ (Finanzministerium und Zentralbank zusammen) niemals bankrott gehen kann,
+ au&szlig;er aus rein politischen Gr&uuml;nden.</b>
+                        Selbst in der Europ&auml;ischen Bargeldsunion (deren
+ Mitgliedsstaaten nicht ihre eigenen Bargelden beherrschen und in gewisser
+ Weise wie die US-Bundesstaaten sind) hat die Europ&auml;ische Zentralbank seit
+ Mitte 2010 eigenst&auml;ndige Anleihen Griechenlands und anderer Staaten auf dem
+ Sekund&auml;rmarkt gekauft &mdash; ein Prozess, der nur durch die Politik begrenzt
+ ist.</li>
+                    <li>Zu beachten ist, dass dieser kombinierte Vorgang nicht
+ einmal die Zentralbank ber&uuml;hrt!
+                        Die Rolle der Zentralbank besteht einfach darin, die
+ &bdquo;richtige&rdquo; Anzahl an Schatzbriefen in Reserven und Bargeld zu
+ verwandeln, um die Zinss&auml;tze festzulegen und eine Transaktions-freundliche
+ Geldversorgung (Bargeld und Reserven) bereitzustellen.
+                        Die Vorg&auml;nge bei der Zentralbank entfernen schlicht
+ einen Typ von Finanz-Aktiva aus dem Staatssektor und ersetzen ihn durch einen
+ anderen Typ von Finanz-Aktiva.</li>
+                </ul>
+            </div>
+            <div id="governmentspendingnobonds" style="display:none">
+                <ul>
+                    <li>Dieser kombinierte Vorgang zeigt, weshalb <b>ein
+ eigenst&auml;ndiger Staat, der sein eigenes nicht-konvertierbares Geld ausgibt,
+ niemals von der Einkommensseite her eingeschr&auml;nkt wird.</b>
+                        Das hei&szlig;t, dass der zusammengefasste Staat
+ (Finanzministerium plus Zentralbank) immer seine Ausgaben t&auml;tigen kann,
+ wenn er es w&uuml;scht, ohne Besteuerung oder Ausgabe von Staatsanleihen,
+ weder vorab noch im Nachhinein.</li>
+                    <li>In diesem Beispiel flie&szlig;en die Staatsausgaben dem
+ Privathaushaltssektor zu, aber Ausgaben an den Unternehmenssektor w&uuml;rden
+ vergleichbar aussehen.</li>
+                </ul><ul>
+                    <li>Gegenw&auml;rtig nutzen Staaten diesen Ausgabenansatz
+ noch nicht, aber sie k&ouml;nnten es, wenn sie es w&uuml;nschten und
+ souver&auml;n sind.
+                        So wie es steht, ist der Privatsektor
+ (einschlie&szlig;lich Auslandssektor) immer froh, zinstr&auml;chtige
+ Staats&shy;schulden zu kaufen (d.h. Versteigerungen von Bundesanleihen schlagen
+ niemals fehl).
+                        Siehe den Vorgang <i>&bdquo;Staat t&auml;tigt Ausgaben
+ (zusammengefasst)&rdquo;</i>.</li>
+                    <li>In den USA sind noch Gesetze aus der Goldstandard-&Auml;ra
+ g&uuml;ltig, welche die Zentralbank daran hindern, Schuldtitel vom
+ Finanzministerium direkt in der hier dargestellten Weise zu kaufen.
+                        Die gleichen Gesetze erlauben der Zentralbank aber
+ (wie bei der EZB), Schuldtitel des Finanzministeriums auf dem Sekund&auml;rmarkt
+ zu kaufen.
+                        Das letztere Vorgehen f&uuml;gt einfach zwei
+ Extraschritte zu dem Prozess hinzu (das Finanzministerium verkauft Schuldtitel
+ an prim&auml;re H&auml;ndler, die wissen, dass die Zentralbank bereit ist,
+ ihnen die Schuldtitel sofort danach abzukaufen).</li>
+                    <li>Einige MMT-Autoren haben alternative Ans&auml;tze
+ diskutiert, von denen sie glauben, dass sie politischen Nutzen bringen k&ouml;nnten:
+                        <ul><li>Obwohl keine operationale Notwendigkeit dazu
+ besteht, w&uuml;rden einige gern das Finanzministerium und die Zentralbank
+ verschmelzen (dabei w&uuml;rde die Zentralbank stark schrumpfen).
+                                In solchem Fall k&ouml;nnte eine einzige Bilanz
+ entstehen, mit den Reserven (und eventuell den Schatzbriefen, wenn der Staat
+ Schuldtitel ausgeben will) als Verbindlichkeiten.</li>
+                            <li>Alternativ dazu schlagen einige MMT-Autoren vor,
+ das Finanzministerium k&ouml;nnte einen &bdquo;&Uuml;berziehungskredit&rdquo;
+ bei der Zentralbank erhalten (z.B. w&auml;re der Kontensaldo des
+ &bdquo;Finanzministerium-Guthabens&rdquo; negativ), um das <i>Deficit
+ Spending</i> ohne Ausgabe von Staatsanleihen zu erm&ouml;glichen.
+                                In den Bilanzen k&ouml;nnte der negative Saldo
+ als <i>Verbindlichkeiten des Finanzministeriums</i> verzeichnet werden,
+ verbunden mit den entsprechenden Zentralbank-Guthaben.</li>
+                        </ul></li>
+                </ul>
+            </div>
+            <div id="withdrawcurrency" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel hebt ein Privathaushalt Bargeld ab
+ (Banknoten und M&uuml;nzen), vielleicht, um Barzahlungen zu t&auml;tigen
+ (oder vielleicht, um es unter einer Matratze aufzubewahren!)</li>
+                </ul><ul>
+                    <li>Bankguthaben der Privathaushalte werden ersetzt durch
+ Bargeld auf der Guthabenseite der Bilanz.</li>
+                    <li>Die Bankbilanzen schrumpfen, wenn Aktiva (Bargeld) und
+ Verbindlichkeiten (Einlagen) reduziert werden.</li>
+                    <li>Wenn Banken knapp an Bargeld werden, kann die
+ Zentralbank Reserven und Bargeld nach Bedarf umtauschen (ein Vorgang, der mit
+ diesem Instrument nicht gezeigt wird).</li>
+                </ul>
+            </div>
+            <div id="depositcurrency" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel zahlt ein Privathaushalt Bargeld
+ (Banknoten und M&uuml;nzen) auf ein Einlagenkonto einer Bank ein.</li>
+                </ul><ul>
+                    <li>Dies ist das Gegenst&uuml;ck zu <i>&bdquo;Bankkunde hebt
+ Bargeld ab&rdquo;</i> &#8212; bitte auch jenen Vorgang ansehen.</li>
+                </ul>
+            </div>
+            <div id="bankloan" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel gew&auml;hrt eine Bank einem
+ Privathaushalt einen Kredit (aber ein Kredit k&ouml;nnte auch einem Unternehmen
+ gew&auml;hrt werden).</li>
+                </ul><ul>
+                    <li>Die Bilanzen sowohl der Bank als auch des Privathaushalts
+ verl&auml;ngern sich um neue Aktiva und Passiva, aber bei keinem &auml;ndert sich
+ das Eigenkapital.</li>
+                    <li>Sowohl die erweiterte Geldmenge als auch die Schulden des
+ Privatsektors werden erh&ouml;ht.</li>
+                    <li><b>Die Darlehen schaffen Guthaben! Banken leihen keine
+ Reserven aus!</b></li>
+                    <li>Die Darlehensvergabe der Banken wird nicht durch die
+ Reserven begrenzt, weil selbst in L&auml;ndern mit Mindestreserve-S&auml;tzen alle
+ ben&ouml;tigten Reserven beschafft werden k&ouml;nnen <i>nach</i> Darlehensvergabe.
+                        <b>Die vorrangige Begrenzung der Darlehensvergabe besteht im
+ Finden kreditw&uuml;rdiger Kreditnehmer, die Darlehen aufnehmen wollen.</b>
+                        Eine sekund&auml;re &Uuml;berlegung ist der regulatorische
+ Kapitalanteil  (die H&ouml;he des Eigenkapitals, das im Verh&auml;ltnis zu riskanten
+ Aktiva wie Darlehen erforderlich ist: siehe
+ <a href="http://de.wikipedia.org/wiki/Basel_III">Basel III</a>).
+                        Aber Kapitalanteil-Regeln sind keine Begrenzung auf
+ makro&ouml;konomischer Ebene, weil gesunde Banken ganz leicht zus&auml;tzliches
+ Kapital aufbringen k&ouml;nnen auf den Aktienm&auml;rkten, um zus&auml;tzliche
+ Darlehen zu unterst&uuml;tzen, und fortlaufende Einnahmen erh&ouml;hen das
+ Eigenkapital.
+                        Die Kapitalanteile sind eher dazu gedacht, gen&uuml;gend
+ gro&szlig;e &bdquo;Schockabsorber&rdquo; sicher zu stellen f&uuml;r den Fall, dass
+ zu viele Kredite platzen, weil Kreditausf&auml;lle das Eigenkapital vermindern.</li>
+                    <li>In einigen L&auml;ndern gibt es immer noch
+ Mindestreserve-Regeln (eine erforderliche Mindestreserve-Menge relativ zur H&ouml;he
+ der Kunden-Einlagen), aber diese Regeln waren nur n&ouml;tig unter dem Goldstandard.
+ Mindestreserve-Vorschriften sind nie eine Begrenzung der Darlehensmenge &#8212;
+ Banken vergeben erst Darlehen und besorgen sich die notwendigen Reserven erst im
+ Nachhinein.</li>
+                    <li>Die Zentralbank stellt sicher, dass stets genug Reserven im
+ System sind, um die Liquidit&auml;tsanforderungen der Banken zu erf&uuml;llen (da die
+ Reserven f&uuml;r Zahlungen im Interbankenverkehr gebraucht werden, zum Beispiel um
+ Wechsel zwischen den Banken abzurechnen). Banken k&ouml;nnen voneinander Reserven
+ leihen oder von der Zentralbank (die als Darlehensgeber des letzten Auswegs fungiert).
+                        Die Zentralbank f&uuml;hrt auch Offenmarkt-Gesch&auml;fte durch,
+ die kontinuierlich f&uuml;r das &bdquo;richtige&rdquo; Niveau an Reserven f&uuml;r das
+ Bankensystem sorgt, wobei sie einen vorbestimmten Overnight-Zinssatz einh&auml;lt
+ (f&uuml;r das Interbanken-Verleihen von Reserven).</li>
+                    <li>Siehe die Visualisierer-Vorg&auml;nge
+ <i>&bdquo;Offenmarktgesch&auml;fte: Hebe S&auml;tze in Richtung Ziel&rdquo;</i> und
+ <i>&bdquo;Offenmarktgesch&auml;fte: Senke S&auml;tze in Richtung Ziel&rdquo;</i>.
+                        Wenn die zusammengefasste Banken-Darlehensvergabe in der
+ Wirtschaft expandiert, werden die Reserven relativ knapper, und der Vorgang
+ <i>&bdquo;Offenmarktgesch&auml;fte: Senke S&auml;tze in Richtung Ziel&rdquo;</i> zeigt
+ den Weg, wie Reserven typischerweise expandieren w&uuml;rden w&auml;hrend den
+ Offenmarktgesch&auml;ften nach einer Expansion der zusammengefassten
+ Banken-Darlehensvergabe.</li>
+                </ul>
+            </div>
+            <div id="bankloaninterest" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel zahlt ein Privathaushalt
+ Darlehens&shy;zinsen an die Bank, die das Darlehen vergab.</li>
+                </ul><ul>
+                    <li>Eine Zahlung von Darlehens&shy;zinsen bewirkt einen Transfer
+ von Kapital vom Darlehensnehmer zur Bank (&auml;hnlich einer Ausgabe des
+ Privatsektors).</li>
+                </ul>
+            </div>
+            <div id="bankloanrepayment" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel zahlt ein Privathaushalt einen Teil der
+ (oder die gesamte) Tilgung eines Bankdarlehens.</li>
+                </ul><ul>
+                    <li>Die Auswirkung auf die Bilanzen ist die exakte Umkehr der
+ Darlehens&shy;entstehung &#8212; Bank- und Privathaushalts-Bilanzen schrumpfen beide,
+ aber das Eigenkapital bleibt unver&auml;ndert.</li>
+                    <li>Sowohl die erweiterte Geldmenge als auch die Schulden der
+ Privathaushalte werden um die Summe der R&uuml;ckzahlung vermindert.</li>
+                </ul>
+            </div>
+            <div id="bankloandefault" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel wird ein Teil des (oder das gesamte)
+ Bankdarlehen(s) notleidend.</li>
+                </ul><ul>
+                    <li>W&auml;hrend des Darlehensverzugs wird die Verbindlichkeit
+ des individuellen Haushalts (Darlehensverpflichtung) vermindert, genauso wie die
+ entsprechende Forderung (Darlehen) der Bank.
+                        Das Eigenkapital der Bank reduziert sich und das Kapital
+ der Privathaushalte erh&ouml;ht sich.</li>
+                    <li>Die Verwendung der Bilanz zusammengefasster Privathaushalte im
+ Visualisierer verdeckt einige Details, die sich im Haushaltssektor abspielen.
+                        <b>Wenn der Bankrott erkl&auml;rt wird, ist ein individueller
+ Privathaushalt wahrscheinlich insolvent (d.h., er hat negatives Kapital)</b>, aber
+ wenn man alle anderen Privathaushalte mit positivem Besitz dazu rechnet, hat die
+ gezeigte sektorweite Bilanz &bdquo;Privathaushalte&rdquo; ein positives
+ Verm&ouml;gen.</li>
+                    <li>Selbst wenn der notleidende Privathaushalt mit negativem
+ Verm&ouml;gen (Verbindlichkeiten &uuml;bersteigen die Forderungen) begann, entfernt der
+ Kreditausfall Verbindlichkeiten und erh&ouml;ht somit das Verm&ouml;gen.</li>
+                    <li>Ein in Verzug geratener Privathaushalt wird wahrscheinlich die
+ Darlehensvaluta f&uuml;r G&uuml;ter und Dienstleistungen in der weiteren Wirtschaft
+ ausgegeben haben, bevor er schlie&szlig;lich Bankrott erkl&auml;ren musste.
+                        Aus der Perspektive einer makro&ouml;konomischen Bilanz <b>ist die
+ Kombination aus einem neuen Bankkredit und dann einem Verzug bei dem Kredit gleichbedeutend
+ damit, dass die Bank dem Rest der Wirtschaft ein Geld-&bdquo;Geschenk&rdquo; macht, das die
+ Beschenkten wieder auf ein Konto der Bank einzahlen.
+                            In anderen Worten: es ist eine &Uuml;bertragung von
+ Bilanzverm&ouml;gen von der Bank an Andere.</b>
+                        Banken, die zu viele Kreditausf&auml;lle erleiden, k&ouml;nnen
+ insolvent werden (negatives Verm&ouml;gen) oder wenigstens unter das regulatorische Minimum
+ f&uuml;r das Eigenkapital fallen, was den Bankrott, eine private Kapitalspritze, staatliche
+ Stundung oder eine staatliche Rettungsaktion erforderlich macht.</li>
+                    <li>Kreditausf&auml;lle reduzieren die privaten Schulden, aber nicht die
+ erweiterte Geldmenge (da die Guthaben des urspr&uuml;nglichen Darlehens immer noch im Umlauf
+ sind au&szlig;erhalb der Bank, auf Kosten des Bilanzverm&ouml;gens der Bank).</li>
+                </ul>
+            </div>
+            <div id="bondissuance" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel legt ein Unternehmen eine Anleihe auf, die von
+ einem Privathaushalt gekauft wird.</li>
+                </ul><ul>
+                    <li>&bdquo;Horizontale&rdquo; Kreditvergabe dieser Art (d.h. innerhalb des
+ Privatsektors) verl&auml;ngert die Bilanz des Kreditnehmers mit einer neuen Forderung und
+ Verbindlichkeit (und keiner &Auml;nderung im Eigenkapital).</li>
+                    <li>Der Kreditgeber hat einfach eine Forderung (Guthaben oder Bargeld) in
+ eine andere Forderung (eine Anleihe) umgewandelt.</li>
+                    <li>Kreditnahme durch Nicht-Banken erh&ouml;ht die Schulden des
+ Privatsektors, aber nicht die Geldmenge.</li>
+                    <li>Zuviel horizontale Kredite k&ouml;nnen eine Wirtschaft
+ krisenanf&auml;llig machen.
+                        Der schwerste Fall dieser &bdquo;Schulden-Deflation&rdquo; wurde zuerst von 
+ Irving Fisher beschrieben im Zusammenhang mit der Gro&szligen Depression (Weltwirtschaftskrise).</li>
+                </ul>
+            </div>
+            <div id="bondinterest" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel zahlt ein Unternehmen Zinsen auf seine Anleihe an den
+ Gl&auml;ubiger (einen Privathaushalt).</li>
+                </ul><ul>
+                    <li>Wie im Fall der Zahlung von Bankdarlehens&shy;zinsen und privater Ausgabe
+ &uuml;bertr&auml;gt dieser Vorgang Kapital von einer Einheit auf eine andere.</li>
+                </ul>
+            </div>
+            <div id="bondrepayment" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel zahlt ein Unternehmen einen Teil oder die gesamten
+ Verpflichtungen aus der Anleihe an einen Privathaushalt.</li>
+                </ul><ul>
+                    <li>Des Schuldners Guthaben (Bank-Einlagen) und Verbindlichkeiten (Anleihen)
+ werden vermindert, aber sein Eigenkapital &auml;ndert sich nicht.
+                        Das entsprechende Anleihe-Guthaben des Gl&auml;ubigers wird in eine
+ Bank-Einlage zur&uuml;ckverwandelt.</li>
+                    <li>Die Schulden des Privatsektors werden reduziert, aber die erweiterte
+ Geldmenge bleibt unver&auml;ndert.</li>
+                </ul>
+            </div>
+            <div id="bonddefault" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel ger&auml;t ein Schuldnerunternehmen in Verzug mit
+ einem Teil oder der gesamten Anleihe, auf Kosten des Gl&auml;ubigerhaushalts.</li>
+                </ul><ul>
+                    <li>Die Verbindlichkeiten des Schuldners (Anleihen) reduzieren sich, und die
+ Forderungen des Gl&auml;ubigerhaushalts (Anleihen) reduzieren sich ebenso.</li>
+                    <li>Das Auflegen einer Anleihe mit nachfolgendem Ausfall ist ungef&auml;hr
+ gleichbedeutend mit einem Kapitalgeschenk des Gl&auml;ubigers an den Schuldner.</li>
+                    <li>Die Schulden des Privatsektors werden reduziert, aber die erweiterte
+ Geldmenge bleibt unver&auml;ndert.</li>
+                </ul>
+            </div>
+            <div id="bankloansecuritize" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel wird ein vorhandenes Bankdarlehen besichert und an
+ ein Unternehmen verkauft, das es als Investition halten m&ouml;chte.</li>
+                </ul><ul>
+                    <li>Die Darlehensforderung der Bank wandert auf die Forderungsseite der
+ Unternehmensbilanz in Form eines besicherten Darlehens.
+                        Die Einlagen des Unternehmens werden reduziert, wie auch die
+ entsprechenden Verbindlichkeiten der Bank.
+                        Weil dies ein Forderungstransfer und eine Portfolio-Umschichtung ist, erf&auml;hrt
+ kein Beteiligter eine &Auml;nderung im Eigenkapital.</li>
+                    <li>Die erweiterte Geldmenge wird reduziert, aber die Schulden des Privatsektors bleiben
+ unver&auml;ndert.</li>
+                    <li><b>Aus einer reinen Bilanz-Perspektive ist die Kombination eines neuen
+ Bankdarlehens und danach seine Besicherung und Verkauf an eine Nicht-Bank gleichbedeutend mit einem
+ Anleihe-Angebot des Privatsektors</b> und bewirkt genauso eine schnellere Steigerung der Schulden als der
+ Geldmenge.</li>
+                    <li>Wie andere Formen der Privatsektor-Verschuldung hat eine riesige Zahl an
+ Besicherungen zu dem dramatischen Anstieg des Verh&auml;ltnisses von Privatschulden zum BIP in einigen
+ &Ouml;konomien gef&uuml;hrt, mit einem Anstieg der Krisenanf&auml;lligkeit.</li>
+                </ul>
+            </div>
+            <div id="qe" style="display:none">
+                <ul>
+                    <li>"Quantitative Easing" (QE, quantitative Lockerung) l&auml;sst die Zentralbank
+ Schatzbriefe (oder in einigen F&auml;llen Privatsektor-Effekten) vom Privatsektor kaufen, indem mit
+ neu geschaffenen Reserven bezahlt wird.</li>
+                    <li>Dies Beispiel zeigt, wie <i>Privathaushalte</i> Schatzbriefe verkaufen (mit den
+ Prim&auml;rh&auml;ndlern als Zwischenstationen).
+                        Jedoch kann im Rahmen der quantitativen Lockerung jede Einheit des Privatsektors
+ Schatzbriefe verkaufen, die Prim&auml;rh&auml;ndler selbst eingeschlossen.</li>
+                </ul><ul>
+                    <li><b>Quantitative Lockerung tauscht einfach einen Typ Aktiva in der 
+ Privatsektor-Bilanz (typischerweise Schatzbriefe) gegen einen anderen Typ (durch Bank-Reserven gedeckte
+ Einlagen oder einfach Bank-Reserven, wenn der Verkauf durch eine Bank get&auml;tigt wurde).</b></li>
+                    <li>QE ver&auml;ndert gewisserma&szlig;en den F&auml;lligkeits-Mix der ausstehenden 
+ Staatsverbindlichkeiten hin zu mehr kurzfristigen und weniger langfristigen Verbindlichkeiten.
+                        Das ist so, als wenn das Finanzministerium fr&uuml;her relativ mehr Schatzwechsel
+ (Kurzl&auml;ufer) und weniger Staatsanleihen (Langl&auml;ufer) aufzulegen gewollt h&auml;tte.</li>
+                    <li>Keine Sektoren (oder Einheiten innerhalb von Sektoren) erfahren irgendeine
+ &Auml;nderung im Eigenkapital als direkte Wirkung von QE.
+                        Deshalb <b>gibt es keinen merkbaren Anstieg in der Kaufkraft des 
+ Privatsektors oder in seiner Ausgabeneigung</b>.
+                        Auf der Ebene des einzelnen Privathaushalts oder Unternehmens, die an die Fed
+ verkaufen w&auml;hrend der QE, <b>pflegen Entscheidungen bez&uuml;glich der Zusammensetzung des
+ Investitionsportfolios unabh&auml;ngig von Entscheidungen dar&uuml;ber gemacht zu werden, wieviel
+ wegzugeben bzw. zu behalten ist im Investitionsportfolio</b> &#8212; somit wird eine Ver&auml;nderung
+ im Portfolio-Mix (Kasse, Anleihen, Aktien, usw.) nicht h&ouml;here Ausgaben verursachen.
+                        Auch sind Schatzbriefe fast so liquide wie &bdquo;Geld&rdquo;, und jeder der
+ vorher Schatzbriefe gehalten hat, h&auml;tte sie problemlos verkaufen k&ouml;nnen, um irgendeine
+ geplante Ausgabe zu unterst&uuml;tzen.</li>
+                    <li>Die Zentralbank-Bilanz verl&auml;ngert sich, w&auml;hrend sie Wertpapiere aus
+ dem Privatsektor aufnimmt, und erschafft neue Verbindlichkeiten (Reserven) zum Ausgleich.</li>
+                    <li>MMTler (Anh&auml;nger der Modernen Mont&auml;ren Theorie) weisen darauf hin,
+ dass, von einer makro&ouml;konomischen Perspektive aus, <b>QE einen deflation&auml;ren Impuls
+ enth&auml;lt</b>, weil es einen h&ouml;herwertigen Aktivposten (Schatzbriefe) durch einen
+ niederwertigen Aktivposten (Geld) ersetzt, was das vom Staat an den Privatsektor gezahlte
+ Zinseinkommen vermindert!
+                        Insgesamt ist sie vergleichbar der R&uuml;cknahme eines fiskalischen Stimulus,
+ obwohl das Ausma&szlig;, wie sehr die Nachfrage beeinflusst wird, in jedem einzelnen Fall
+ unterschiedlich ausfallen kann je nach Zielrichtung (d.h. jene, die ein Staatsanleihe-Einkommen
+ verdienen, k&ouml;nnen eine andere Ausgabeneigung haben als die anf&auml;nglichen Empf&auml;nger der 
+ mit dem fiskalischen Stimulus verbundenen Ausgaben).</li>
+                    <li>Die erweiterte Geldmenge und die Geldbasis werden beide erh&ouml;ht, wenn
+ der Verkauf durch Privathaushalte erfolgt (wenn jedoch die Banken sich zum Verkauf von Schatzbriefen
+ entscheiden, erh&ouml;ht sich die erweiterte Geldmenge nicht).
+                        <b>QE f&uuml;hrt nicht zu einer kreditgetriebenen Inflation, jetzt oder in
+ Zukunft, weil Banken niemals Reserven verleihen oder durch die Reserven eingeschr&auml;nkt sind</b>,
+ vielmehr schaffen Darlehen Einlagen (siehe den Vorgang <i>&bdquo;Bankdarlehen&rdquo;</i>,).</li>
+                    <li>Manchmal wird argumentiert, dass QE zu einer Wertpapierpreis-Inflation
+ f&uuml;hrt, da die Besitzer der nun zahlreicheren niederwertige Einlagen und Bargelder die Preise
+ der Aktivposten (Aktien, Rohstoffe, Grundst&uuml;cke, usw.) in die H&ouml;he treiben k&ouml;nnten
+ bei der Suche nach Ertr&auml;gen, aber ob dies zur Inflation in der realen Wirtschaft f&uuml;hrt,
+ h&auml;ngt vom Ausma&szlig; ab, mit dem dies eine nachfolgende und anhaltende Steigerung der
+ Nachfrage nach G&uuml;tern und Dienstleistungen im Privatsektor ausl&ouml;st.
+                        <b>Die Existenz eines Transmissionsmechanismus von QE zu einer anhaltenden
+ Inflation bei G&uuml;tern und Dienstleistungen ist in hohem Ma&szlig;e fraglich.</b>
+                        Jedweder Psychology-getriebener Anstieg in der mehrfachen Preisbewertung
+ von Aktivposten kann kaum lange andauern, weil die realen Ertr&auml;ge, die den Aktivposten
+ zugrunde liegen, wohl kaum so schnell ansteigen k&ouml;nnen, wie es vom angenommenen direkten
+ Stimulus durch QE auf die Wirtschaft erwartet wird.
+                        Zum Beispiel hat es Japan seit den fr&uuml;hen 2000er Jahren in mehreren
+ Runden mit quantitativer Lockerung versucht, mit nicht feststellbarer Wirkung auf die reale
+ Wirtschaft und ganz sicher keinem Anwachsen der Inflation (Japan geriet in und wieder aus einer
+ milden Deflation). Japan-Experte Richard Koo nennt QE das &bdquo;gr&ouml;&szlig;te monet&auml;re
+ Nicht-Ereignis.&rdquo;</li>
+                    <li>Letztendlich steuert der Privatsektor den Umfang der erweiterten Geldmenge
+ als Folge seiner Verschuldungsentscheidungen und Portfolio-Anpassungsentscheidungen.
+                        Einige Theorien und Anhaltspunkte st&uuml;tzen die Idee, dass der Privatsektor
+ die durch QE bewirkte Vermehrung der Einlagen wieder &bdquo;aufheben&rdquo; kann!
+                        Siehe den Beitrag
+ <a href="http://www.thoughtofferings.com/2011/06/visual-guide-to-endogenous-money-and.html">
+ "A Visual Guide to Endogenous Money and the Failure of QE"</a>
+ und seine Vorl&auml;ufer zur detaillierten Erl&auml;uterung.</li>
+                </ul>
+            </div>
+            <div id="qebanks" style="display:none">
+                <ul>
+                    <li>Quantitative Lockerung (QE) l&auml;sst die Zentralbank dem Privatsektor
+ Schatzbriefe (oder in manchen F&auml;llen Effekten des Privatsektors) abkaufen, indem mit neu
+ geschaffenen Reserven bezahlt wird.</li>
+                    <li>Dies Beispiel zeigt, wie <i>Gesch&auml;ftsbanken</i> Schatzbriefe verkaufen
+ (&uuml;ber die Prim&auml;rh&auml;ndler als Intermedi&auml;re, die selbst w&auml;hlen d&uuml;rfen,
+ ob sie einige ihrer eigenen Schatzbriefe verkaufen wollen).
+                        Jedoch k&ouml;nnen w&auml;hrend der QE beliebige Einheiten des Privatsektors
+ Schatzbriefe verkaufen (&uuml;ber die Prim&auml;rh&auml;ndler), einschlie&szlig;lich Privathaushalte,
+ Firmen, Pensionsfonds, usw.</li>
+                </ul><ul>
+                    <li>Bitte den &auml;hnlichen Vorgang <i>&bdquo;Quantitative Lockerung (Variation 1
+ - Verkauf durch Haushalte)&rdquo;</i> ansehen, um einen detaillierten Kommentar zu erhalten.</li>
+                </ul>
+            </div>
+            <div id="omoraiserates" style="display:none">
+                <ul>
+                    <li>W&auml;hrend Offenmarktgesch&auml;ften, um den Overnight-Zinssatz nach
+ <i>oben</i> in Richtung des aktuellen Zinssatzes zu treiben, verkauft die Zentralbank Schatzbriefe an
+ die Banken, die mit Reserven bezahlen (so tauschen sie Reserven gegen Schatzbriefe auf der Aktivseite
+ ihrer Bilanz).</li>
+                </ul><ul>
+                    <li>Offenmarktgesch&auml;fte durch die Zentralbank dienen dazu, die Versorgung des
+ Bankensystems mit Reserven sicher zu stellen, damit der kurzfristige (Overnight-)Zinssatz das Ziel der
+ Zentralbank-Politik trifft.
+                        <b>Die Zentralbank zielt in Wirklichkeit auf Ziels&auml;tze, nicht auf
+ spezifische Mengen an Reserven</b>, obwohl sich die Mengen &auml;ndern als Teil dieses Ablaufs.</li>
+                    <li>Um den Overnight-Satz in Richtung auf das politische Ziel anzuheben, verkauft 
+ die Zentralbank Staats&shy;schulden, und im Tausch daf&uuml;r belastet sie Reserven des Bankensystems.
+                        Dies vermindert die Versorgung mit Reserven, die zwischen den Banken im 
+ Gesamt-Banksystem verliehen werden k&ouml;nnen (Banken ben&ouml;tigen Reserven, um die
+ Reserve-Anforderungen zu erf&uuml;llen und um Zahlungen abzurechnen), wodurch der Overnight-Zinssatz
+ sich in Richtung auf den gegenw&auml;rtigen Zielsatz bewegt.
+                    </li><li>Der gezeigte Vorgang repr&auml;sentiert traditionelle
+ Offenmarktgesch&auml;fte, aber Zentralbanken benutzen auch andere Instrumente, wie:
+                        <ul><li>Der Diskontsatz (auch bekannt als Strafsatz) ist der Satz, zu dem
+ Banken direkt von der Zentralbank leihen.</li>
+                            <li>K&uuml;rzlich hat die US-Zentralbank (Federal 
+ Reserve) Zinsen auf Reserven mit einem Unterst&uuml;tzungssatz bezahlt, der eine Untergrenze f&uuml;r
+ Zinss&auml;tze bedeutet als Mittel, den Zielsatz zu erreichen.</li></ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="omolowerrates" style="display:none">
+                <ul>
+                    <li>W&auml;hrend Offenmarktgesch&auml;ften, um den Overnight-Zinssatz nach
+ <i>unten</i> in Richtung des aktuellen Zinssatzes zu treiben, kauft die Zentralbank Schatzbriefe von
+ Banken, die daf&uuml;r Reserven als Bezahlung erhalten (so tauschen sie Schatzbriefe gegen Reserven auf
+ der Aktivseite ihrer Bilanz).</li>
+                    <li>Erscheint dabei ein Laufzeitfehler &bdquo;Vorgang unzul&auml;ssig&rdquo;, sollte der Vorgang
+ <i>&bdquo;Offenmarktgesch&auml;fte: Hebe S&auml;tze in Richtung auf Ziel&rdquo;</i> zuerst probiert
+ werden, um sicher zu stellen, dass einige Schatzbriefe in der Bankenbilanz im Visualisierer vorkommen.</li>
+                </ul><ul>
+                    <li>Offenmarktgesch&auml;fte durch die Zentralbank dienen dazu, die Versorgung des
+ Bankensystems mit Reserven sicher zu stellen, damit der kurzfristige (Overnight-)Zinssatz das Ziel der
+ Zentralbank-Politik trifft.
+                        <b>Die Zentralbank zielt in Wirklichkeit auf Ziels&auml;tze, nicht auf
+ spezifische Mengen an Reserven</b>, obwohl sich die Mengen &auml;ndern als Teil dieses Ablaufs.</li>
+                    <li>Um den Overnight-Satz in Richtung auf das politische Ziel abzusenken, kauft 
+ die Zentralbank Staats&shy;schulden und bezahlt mit neu geschaffenen Reserven und erh&ouml;ht so
+ die Versorgung mit Reserven, die zwischen den Banken im Gesamt-Bankensystem verliehen werden k&ouml;nnen
+ (Banken ben&ouml;tigen Reserven, um die Mindestreserve-Anforderungen zu erf&uuml;llen und um Zahlungen
+ abzurechnen).
+                        Dies senkt den Zinssatz in Richtung des gegenw&auml;rtigen Zielsatzes,
+                    </li><li>Der gezeigte Vorgang repr&auml;sentiert traditionelle
+ Offenmarktgesch&auml;fte, aber Zentralbanken benutzen auch andere Instrumente, wie:
+                        <ul><li>Der Diskontsatz (auch bekannt als Strafsatz) ist der Satz, zu dem
+ Banken direkt von der Zentralbank leihen.</li>
+                            <li>K&uuml;rzlich hat die US-Zentralbank (Federal 
+ Reserve) Zinsen auf Reserven mit einem Unterst&uuml;tzungssatz bezahlt, der eine Untergrenze f&uuml;r
+ Zinss&auml;tze bedeutet als Mittel, den Zielsatz zu erreichen.</li></ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="governmentdebtissuancettl" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel kauft eine Gesch&auml;ftsbank
+ (bekannt als Spezielles Depot) Schulden, die vom Finanzministerium ausgegeben werden.</li>
+                </ul><ul>
+                    <li>Dies ist der zweite Schritt des Ablaufs, der in
+ <a href="http://neweconomicperspectives.blogspot.com/2010/11/yes-government-bonds-add-to-private.html">
+ Stephanie Keltons Beitrag in diesem Blog</a> umrissen wurde. Wie sie anmerkt:</li>
+                    <li>Das Finanzministerium verkauft Schulden an eine Gesch&auml;ftsbank, und diese
+ Gesch&auml;ftsbank zahlt f&uuml;r diese Anleihen, indem sie es dem TT&amp;L (Treasury Tax &amp; Loan)
+ Konto des Finanzministeriums gutschreibt.</li>
+                    <li>Dies ist analog zum Vorgang, in dem eine Bank einen Kredit erwerben darf durch
+ Gutschrift auf das Konto des Gl&auml;ubigers. Es &bdquo;kostet&rdquo; die Bank michts. 
+ Keine vorhandenen Ressourcen (Reserven) werden ausgegeben wenn die Anleihe erworben wird.</li>
+                    <li>Die Gesch&auml;ftsbank erh&auml;lt die Anleihen (Aktiva) und das Finanzministerium
+ erh&auml;lt einen Kredit auf seinem TT&amp;L Konto bei der Gesch&auml;ftsbank.</li>
+                </ul>
+            </div>
+            <div id="treasurymovesttl" style="display:none">
+                <ul>
+                    <li>In diesem Beispiel plant das Finanzministerium eine Ausgabe und platziert einen
+ &bdquo;Anruf&rdquo; auf sein TT&amp;L (Treasury Tax &amp; Loan) Konto bei einer Gesch&auml;ftsbank
+ &#8212; dies bedeutet: Bewegung von Finanzmitteln von einem Konto bei einer Gesch&auml;ftsbank auf ein
+ Konto bei der Zentralbank.</li>
+                </ul><ul>
+                    <li>Dies ist Schritt drei des Ablaufs, der in
+ <a href="http://neweconomicperspectives.blogspot.com/2010/11/yes-government-bonds-add-to-private.html">
+ Stephanie Keltons Beitrag in diesem Blog</a> umrissen wurde. Wie sie anmerkt:</li>
+                    <li>In Vorwegnahme seiner bevorstehenden Ausgabe platziert das Finanzministerium einen
+ &bdquo;Anruf&rdquo; auf sein TT&amp;L Konto.</li>
+                    <li>Dies ist eine formale Anweisung, welche die Gesch&auml;ftsbank instruiert,
+ Finanzmittel von seinem TT&amp;L Konto auf das Konto des Finanzministeriums bei der Zentralbank zu
+ transferieren.</li>
+                    <li>Weil das Finanzministerium sein Konto aus der Gesch&auml;ftsbank verschiebt,
+ verzeichnet die Gesch&auml;ftsbank einen Verlust an Reserven.</li>
+                    <li>Die Zentralbank &auml;ndert ihre Bilanz, um anzuzeigen, dass das
+ Finanzministerium etwas zu seinem Konto bei der Zentralbank hinzugef&uuml;gt hat, und die
+ Gesch&auml;ftsbank hat ihr Reserven-Konto reduziert.</li>
+                </ul>
+            </div>
+        </div>
+<script type="text/javascript">
+    var disqus_shortname = 'econviz';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+    
+
+</body></html>isualiseur</title>
         <meta http-equiv="X-UA-Compatible" content="chrome=1"><!-- Support for Chrome Frame for older IE browsers -->
         <!-- Force IE9 to use Flash as if IE 8, until mouseover bugs fixed and can use newer svgweb. See http://code.google.com/p/svgweb/issues/detail?id=573&can=1&q=setProperty -->
         <!--meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" Doesn't work with older version of SVGWeb -->
